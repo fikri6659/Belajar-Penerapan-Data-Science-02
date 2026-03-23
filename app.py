@@ -2,26 +2,29 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
+import os
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score, roc_auc_score, roc_curve, confusion_matrix
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 # Load model dan preprocessor
 @st.cache_resource
 def load_model():
-    with open('model/rf_model.pkl', 'rb') as f:
+    with open(os.path.join(BASE_DIR, 'model', 'rf_model.pkl'), 'rb') as f:
         model = pickle.load(f)
-    with open('model/scaler.pkl', 'rb') as f:
+    with open(os.path.join(BASE_DIR, 'model', 'scaler.pkl'), 'rb') as f:
         scaler = pickle.load(f)
-    with open('model/feature_cols.pkl', 'rb') as f:
+    with open(os.path.join(BASE_DIR, 'model', 'feature_cols.pkl'), 'rb') as f:
         feature_cols = pickle.load(f)
     return model, scaler, feature_cols
 
 # Load dataset untuk referensi
 @st.cache_data
 def load_data():
-    df = pd.read_csv('students_performance.csv')
+    df = pd.read_csv(os.path.join(BASE_DIR, 'students_performance.csv'))
     df['average_score'] = (df['math score'] + df['reading score'] + df['writing score']) / 3
     return df
 
