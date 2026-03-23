@@ -13,11 +13,15 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # Load model dan preprocessor
 @st.cache_resource
 def load_model():
-    with open(os.path.join(BASE_DIR, 'model', 'rf_model.pkl'), 'rb') as f:
+    model_path = os.path.join(BASE_DIR, 'model', 'rf_model.pkl')
+    scaler_path = os.path.join(BASE_DIR, 'model', 'scaler.pkl')
+    feature_cols_path = os.path.join(BASE_DIR, 'model', 'feature_cols.pkl')
+    
+    with open(model_path, 'rb') as f:
         model = pickle.load(f)
-    with open(os.path.join(BASE_DIR, 'model', 'scaler.pkl'), 'rb') as f:
+    with open(scaler_path, 'rb') as f:
         scaler = pickle.load(f)
-    with open(os.path.join(BASE_DIR, 'model', 'feature_cols.pkl'), 'rb') as f:
+    with open(feature_cols_path, 'rb') as f:
         feature_cols = pickle.load(f)
     return model, scaler, feature_cols
 
