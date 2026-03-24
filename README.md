@@ -18,7 +18,7 @@ Tingginya jumlah *dropout* tentunya menjadi salah satu masalah yang besar untuk 
 
 ### Persiapan Lingkungan dan Cara Menjalankan
 
-Sumber data yang digunakan dapat diunduh pada repositori: [students' performance](https://github.com/dicodingacademy/dicoding_dataset/blob/main/students_performance/README.md) dataset.
+Sumber data yang digunakan dapat diunduh pada repositori: [students&#39; performance](https://github.com/dicodingacademy/dicoding_dataset/blob/main/students_performance/README.md) dataset.
 
 Langkah-langkah di bawah ini disusun secara terstruktur untuk perbaikan (_maintenance_) dan kemudahan dalam menjalankan kembali keseluruhan _Machine Learning pipeline_:
 
@@ -55,7 +55,7 @@ Prototipe prediksi dini untuk mahasiswa berisiko dropout berbasis interaksi Grap
 py -m streamlit run app.py
 ```
 
-> Aplikasi secara responsif akan berjalan di jendela browser pada `http://localhost:8501`. (Jika finalisasi telah diunggah / didistribusikan ke server *Streamlit Community Cloud*, tambahkan dan arahkan url *reviewer* ke ( https://4gbn5qdegzjne2zsqnf3ja.streamlit.app/ ).
+> Aplikasi secara responsif akan berjalan di jendela browser pada `http://localhost:8501`. (Jika finalisasi telah diunggah / didistribusikan ke server *Streamlit Community Cloud*, tambahkan dan arahkan url *reviewer* ke ( https://jsd8dcdn4vftyq77u6sf5w.streamlit.app/ ).
 
 **4. Opsi Ekstra: Mengaktifkan Business Dashboard Utama (Docker, PostgreSQL, & Metabase)**
 Selain menanam *dashboard* mini di *Streamlit* (`app.py`), arsitektur kode di repositori ini didesain juga untuk _dashboard_ pantauan Business-Analytics **Metabase** penuh. Berikut *script* peruntutan eksekusinya:
@@ -82,6 +82,7 @@ py build_dashboard.py
 Dataset yang digunakan dalam proyek ini adalah **Students Performance Dataset** dari Dicoding Academy yang berisi informasi tentang **4,424 siswa perguruan tinggi** dengan atribut sebagai berikut:
 
 ### Atribut Utama:
+
 - **Marital_status**: Status pernikahan orang tua (1=Single, 2=Other)
 - **Application_mode**: Mode aplikasi pendaftaran (1-42)
 - **Application_order**: Urutan aplikasi (1-8)
@@ -110,6 +111,7 @@ Dataset yang digunakan dalam proyek ini adalah **Students Performance Dataset** 
 - **GDP**: Produk Domestik Bruto (-5% sampai 10%)
 
 ### Target Variable:
+
 - **Status**: Status siswa (Dropout, Enrolled, Graduate)
 
 ## Catatan Spesifik Evaluasi Reviewer
@@ -123,11 +125,8 @@ Sementara itu, dari segi kinerja prediksi deteksi sistem Machine Learning, aplik
 Dari hasil pelatihan machine learning dan analisis Exploratory Data Analysis (EDA), dapat disimpulkan bahwa:
 
 1. **Faktor Akademik Dominan**: Nilai akademis siswa, terutama pada semester kedua (approved dan grade), merupakan prediktor terkuat untuk status siswa.
-
 2. **Faktor Administratif**: Status biaya kuliah (tuition_fees_up_to_date), beasiswa (scholarship_holder), dan admission grade memiliki pengaruh signifikan.
-
 3. **Faktor Demografis**: Usia saat enrollment dan status internasional juga mempengaruhi kelangsungan studi siswa.
-
 4. **Faktor Ekonomi**: Tingkat pengangguran dan inflasi di lingkungan siswa berpengaruh terhadap kemampuan mereka menyelesaikan studi.
 
 ### Rekomendasi Action Items
@@ -135,11 +134,7 @@ Dari hasil pelatihan machine learning dan analisis Exploratory Data Analysis (ED
 Berdasarkan hasil analisis, berikut adalah rekomendasi untuk Jaya Jaya Institut:
 
 1. **Intervensi Akademik Dini**: Identifikasi siswa dengan nilai rendah pada semester pertama dan berikan bimbingan akademik intensif.
-
 2. **Dukungan Administratif**: Perbaiki sistem pembayaran biaya kuliah dan berikan insentif bagi siswa yang menjaga status pembayaran aktif.
-
 3. **Program Beasiswa**: Perluas program beasiswa bagi siswa berprestasi dan siswa kurang mampu.
-
 4. **Pembimbingan Karier**: Berikan pembimbingan karier sejak awal untuk membantu siswa memahami komitmen yang diperlukan.
-
 5. **Monitoring Real-time**: Implementasikan sistem monitoring untuk staf akademik agar dapat mengidentifikasi siswa berisiko sejak dini.
